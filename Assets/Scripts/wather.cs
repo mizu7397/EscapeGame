@@ -5,21 +5,25 @@ using UnityEngine;
 
 public class wather : MonoBehaviour
 {
-    public float eyeHeight = 1.5f;
-    public float viewDistance = 60f;
-    public Vector3 direction = Vector3.right;
-    public LayerMask detectionLayer;
-    public bool playerDetected = false;
+    public float eyeHeight = 1.5f;              //目の高さ
+    public float viewDistance = 60f;            //視線の届く距離
+    public Vector3 direction = Vector3.right;   //視線の方向
+    public LayerMask detectionLayer;            //プレイヤーが属するレイヤー
+    public bool playerDetected = false;         //プレイヤーを見つけたかどうか
+    public float checkIntervel = 0.5f;          //チェックの時間（秒）
 
     private Vector3 eyePosition;
     void Start()
     {
-
+        //一定間隔でCheckPlayerを繰り返す（0秒後に開始し、checkInteval1秒ごと）
+        InvokeRepeating("CheckPlayer",0f,checkIntervel);
     }
 
     // Update is called once per frame
-    void Update()
+    void CheckPlayer()
     {
+        playerDetected = false;
+        Debug.Log("チェック開始");
         //目線の位置を更新（少し上
         //eyePosition = new Vector3(transform.position.x, transform.position.y + eyeHeight, transform.position.z);
         //rayを飛ばす
