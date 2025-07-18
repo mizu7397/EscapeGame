@@ -12,6 +12,8 @@ public class wacther : MonoBehaviour
     public bool playerDetected = false;         //プレイヤーを見つけたかどうか
     public float checkIntervel = 0.5f;          //チェックの時間（秒）
     public LayerMask blockLayer; //障害物のレイヤー 
+    bool isSafe=false;//障害物を見つけたか
+    bool isDisCover=false;//プレイヤーを見つけたかどうか
 
     private Vector3 eyePosition;
     void Start()
@@ -23,6 +25,8 @@ public class wacther : MonoBehaviour
     // Update is called once per frame
     void CheckPlayer()
     {
+        isDisCover = false;
+        isSafe = false;
         playerDetected = false;
         Debug.Log("チェック開始");
        //ジャイアントの位置＋アイハイト分の高さ
@@ -53,9 +57,19 @@ public class wacther : MonoBehaviour
             if (IsInLayerMask(obj,blockLayer))
             {
                 Debug.Log("障害物によりセーフ");
+                isSafe = true;
+                return;//繰り返しのfor文を強制終了
+            }
+            else
+            {
+                Debug.Log("発見！");
+                isDisCover = true;
             }
         }
-
+        if (isSafe == false && isDisCover == true)
+        {
+            Debug.Log("ゲームオーバー");
+        }
 
         //視線に何かぶつかったか判定
         //if (Physics.Raycast(origin, direction,out hit, viewDistance, playerLayer))
