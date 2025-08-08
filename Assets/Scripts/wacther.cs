@@ -10,18 +10,38 @@ public class wacther : MonoBehaviour
     public Vector3 direction = Vector3.right;   //視線の方向
     public LayerMask playerLayer;            //プレイヤーが属するレイヤー
     public bool playerDetected = false;         //プレイヤーを見つけたかどうか
-    public float checkIntervel = 0.5f;          //チェックの時間（秒）
+    public float checkIntervel = 3f;          //チェックの時間（秒）
     public LayerMask blockLayer; //障害物のレイヤー 
     bool isSafe=false;//障害物を見つけたか
     bool isDisCover=false;//プレイヤーを見つけたかどうか
+    bool isCheck = false;
+    public GameObject eyeImage;
 
     private Vector3 eyePosition;
     void Start()
     {
         //一定間隔でCheckPlayerを繰り返す（0秒後に開始し、checkInteval1秒ごと）
-        InvokeRepeating("CheckPlayer",0f,checkIntervel);
+        InvokeRepeating("CheckReverse",5f,checkIntervel);
     }
-
+    private void Update()
+    {
+        if (isCheck==true)
+        {
+            //目玉のUIを出す
+            CheckPlayer();
+            eyeImage.SetActive(true);
+        }
+        else
+        {
+            eyeImage.SetActive(false);
+        }
+    }
+    //チェックフラグを反転　今false→true 今　true→false
+    void CheckReverse()
+    {
+        //今の自分を反転させて左に代入
+        isCheck = !isCheck;
+    }
     // Update is called once per frame
     void CheckPlayer()
     {
