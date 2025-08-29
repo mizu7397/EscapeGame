@@ -89,6 +89,7 @@ public class wacther : MonoBehaviour
         if (isSafe == false && isDisCover == true)
         {
             Debug.Log("ゲームオーバー");
+            GameManager.gameover = true;
         }
 
         //視線に何かぶつかったか判定
