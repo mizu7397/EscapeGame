@@ -9,7 +9,7 @@ public class ChengeScene : MonoBehaviour
     public string sceneName;
     public void Load()
     {
-        Debug.Log("ロード");
+        //Debug.Log("ロード");
         SceneManager.LoadScene(sceneName);
     }
 }

@@ -48,7 +48,7 @@ public class wacther : MonoBehaviour
         isDisCover = false;
         isSafe = false;
         playerDetected = false;
-        Debug.Log("チェック開始");
+        //Debug.Log("チェック開始");
        //ジャイアントの位置＋アイハイト分の高さ
         Vector3 origin = transform.position + new Vector3(0, eyeHeight, 0);
         //ジャイアントの前方
@@ -76,19 +76,19 @@ public class wacther : MonoBehaviour
             //障害物レイヤーかどうかチェック
             if (IsInLayerMask(obj,blockLayer))
             {
-                Debug.Log("障害物によりセーフ");
+                //Debug.Log("障害物によりセーフ");
                 isSafe = true;
                 return;//繰り返しのfor文を強制終了
             }
             else
             {
-                Debug.Log("発見！");
+                //Debug.Log("発見！");
                 isDisCover = true;
             }
         }
         if (isSafe == false && isDisCover == true)
         {
-            Debug.Log("ゲームオーバー");
+            //Debug.Log("ゲームオーバー");
             GameManager.gameover = true;
         }
 

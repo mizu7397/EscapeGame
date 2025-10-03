@@ -32,20 +32,20 @@ public class PleyerController : MonoBehaviour
             if (Input.GetKey("right"))
             {
                 transform.localScale = new Vector3(1, 1, 1);
-                Debug.Log("右押された");
+                //Debug.Log("右押された");
                 transform.position += transform.forward * speed * Time.deltaTime;
                 x += 1;
             }
             if (Input.GetKey("left"))
             {
                 transform.localScale = new Vector3(1, 1, -1);
-                Debug.Log("左押された");
+                //Debug.Log("左押された");
                 transform.position += transform.forward * -speed * Time.deltaTime;
                 x -= 1;
             }
             if (Input.GetKeyDown(KeyCode.Space) && onGround == true)
             {
-                Debug.Log("ジャンプ押した");
+                //Debug.Log("ジャンプ押した");
                 //もしも地面に触れていたら
                 rbody.AddForce(new Vector3(0, 10, 0), ForceMode.Impulse);
             }
