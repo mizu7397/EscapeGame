@@ -10,7 +10,7 @@ public class PlayerEscape : MonoBehaviour
     {
         if (triggerCount >=2)
         {
-            Debug.Log("セーフ");
+            //Debug.Log("セーフ");
         }
     }
 
@@ -19,7 +19,7 @@ public class PlayerEscape : MonoBehaviour
     {
         if ((collision.gameObject.tag == "Eye") || (collision.gameObject.tag == "SafeBlock"))
         {
-            Debug.Log("セーフ");
+            //Debug.Log("セーフ");
             triggerCount++;//一つ重なる度に1加算
         }
 

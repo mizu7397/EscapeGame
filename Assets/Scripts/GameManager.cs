@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameover = false;
-        Debug.Log("false‚É‚È‚Á‚Ä‚é");
+        //Debug.Log("false‚É‚È‚Á‚Ä‚é");
     }
 
     // Update is called once per frame
