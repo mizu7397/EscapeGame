@@ -19,7 +19,7 @@ public class UIController : MonoBehaviour
         //もしゲームマネージャーのゲームオーバーという変数がtrueになったらゲームオーバーパネルを表示する
         if (GameManager.gameover == true)
         {
-            Debug.Log("パネルを出す");
+            //Debug.Log("パネルを出す");
             gameoverPanel.SetActive (true);
         }
     }
