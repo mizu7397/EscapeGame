@@ -15,16 +15,34 @@ public class Eye : MonoBehaviour
     {
         //Eyeは生れ出たら自動でPlayerを探してくる
         player = GameObject.FindGameObjectWithTag("Player");
+        //プレイヤーのPlayerEscapeスクリプトの変数eyeApproachをtrueにする
+        player.GetComponent<PlayerEscape>().eyeApproach = true;
         //変数で設定した秒後に排除
-        Destroy(gameObject,deleteTime);
+        StartCoroutine(DeleteEye());
+    }
+    IEnumerator DeleteEye()
+    {
+        //deletaTime秒待つ
+        yield return new WaitForSeconds(deleteTime);
+        //プレイヤーのPlayerEscapeスクリプトの変数eyeColisionをfalseに戻す
+        player.GetComponent<PlayerEscape>().eyeCollision = false;
+        //プレイヤーのPlayerEscapeスクリプトの変数eyeApproachをfalseに戻す
+        player.GetComponent<PlayerEscape>().eyeApproach = false;
+
+        //Eyeを削除
+        Destroy(gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.gameclear == true)
+        {
+            Destroy(gameObject);
+        }
         //生成したオブジェクト（Eye）がプレイヤーのもとへ向かっていく
         //現在地からプレイヤーの位置へ徐々に迫る
         //Lerpメソッド→第一引数から第二引数へ移動させる※第三引数で指定したスピード感で移動
-        transform.position = Vector3.Lerp(transform.position, player.transform.position,eyeSpeed *Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, player.transform.position, eyeSpeed * Time.deltaTime);
     }
 }

@@ -18,6 +18,10 @@ public class EyeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.gameclear == true)
+        {
+            return;
+        }
         timer += Time.deltaTime; //時間計測
         //Debug.Log(timer);
         if (timer > interval) //決めた時間が経過したら
@@ -34,10 +38,9 @@ public class EyeController : MonoBehaviour
             //生成したEyeの親オブジェクトは自分(gameObject)だとする Parent＝親
             obj.transform.SetParent(gameObject.transform);
             //obj.transform.localPosition = new Vector3(0, 2.2f, 1.2f); //親に対しての相対位置
-            obj.transform.localPosition = new Vector3(0, 2.7f, 0.2f); //親に対しての相対位置
+            obj.transform.localPosition = new Vector3(0, 2.7f, .2f); //親に対しての相対位置
             obj.transform.localScale = new Vector3(1, 0.2f, 2);
             obj.transform.localRotation = Quaternion.Euler(30, 0, 0);
-            // 生成したオブジェクト（Eye）がプレイヤーのもとへ向かっていく
 
             timer = 0;
         }

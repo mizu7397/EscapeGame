@@ -22,7 +22,7 @@ public class PleyerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.gameover == true) 
+        if (GameManager.gameover == true || GameManager.gameclear == true) 
         {
             return;
         }

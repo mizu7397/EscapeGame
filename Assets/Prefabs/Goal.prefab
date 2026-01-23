@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 7154006054197704920}
   - component: {fileID: 906822068943185582}
   m_Layer: 7
-  m_Name: SafeBlock
-  m_TagString: SafeBlock
+  m_Name: Goal
+  m_TagString: Goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d075e75d99875da41b3ea0eff76ef51b, type: 2}
+  - {fileID: 2100000, guid: c26a94a7c4028f14780163d3733f4ec1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
